@@ -1,0 +1,13 @@
+[package]
+name = "aoc2024"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+authors = ["Lukas Döllerer"]
+
+[dependencies]
+clap = { version = "4.5.21", features = ["derive"] }
+rand = "0.8.5"
+regex = "1.11.1"
+soup = "0.5.1"
+ureq = "2.11.0"
