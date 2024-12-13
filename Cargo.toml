@@ -6,7 +6,9 @@ license = "MIT"
 authors = ["Lukas Döllerer"]
 
 [dependencies]
+chrono = "0.4.39"
 clap = { version = "4.5.21", features = ["derive"] }
+itertools = "0.13.0"
 rand = "0.8.5"
 regex = "1.11.1"
 soup = "0.5.1"
