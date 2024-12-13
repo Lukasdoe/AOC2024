@@ -6,6 +6,12 @@ use crate::{
 
 #[cfg(test)]
 fn test(day: Day, part: Part) {
+    let now = chrono::Local::now().date_naive();
+    let first_of_december = chrono::NaiveDate::from_ymd_opt(2024, 12, 1).unwrap();
+    if (day as u8) > ((now - first_of_december).num_days() as u8) {
+        return;
+    }
+
     let input = Input::new(day, true, part);
     let result = days::run_day(day, &input, part);
     assert_eq!(result, input.get_solution().unwrap());
