@@ -127,7 +127,7 @@ impl Input {
         let code_tags = article.tag("code").find_all().collect::<Vec<_>>();
         for tag in code_tags.iter().rev() {
             if let Some(em) = tag.tag("em").find() {
-                let num: u64 = em.text().parse().unwrap();
+                let num: u64 = em.text().parse().unwrap_or(0);
                 println!("Found example solution: {}", num);
                 let res = AoCSource {
                     source: example_source.unwrap(),
