@@ -34,7 +34,7 @@ fn main() {
         if args.only_part_2 && part == Part::One {
             continue;
         }
-        // println!("Retrieving debug input.");
+        println!("Retrieving debug input.");
         let input = Input::new(day, true, part);
         // println!("Running day {}.", args.day);
         let result = days::run_day(day, &input, part);

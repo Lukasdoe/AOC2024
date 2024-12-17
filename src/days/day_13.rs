@@ -6,7 +6,7 @@ const PRICE_A: u64 = 3;
 const PRICE_B: u64 = 1;
 const PART_TWO_OFFSET: u64 = 10000000000000;
 
-pub(super) fn run(input: &Input, part: Part) -> u64 {
+pub(super) fn run(input: &Input, part: Part) -> String {
     let reg_a = Regex::new(r"Button A: X\+(\d+), Y\+(\d+)").unwrap();
     let reg_b = Regex::new(r"Button B: X\+(\d+), Y\+(\d+)").unwrap();
     let reg_price = Regex::new(r"Prize: X=(\d+), Y=(\d+)").unwrap();
@@ -90,5 +90,5 @@ pub(super) fn run(input: &Input, part: Part) -> u64 {
             }
         }
     }
-    tokens
+    tokens.to_string()
 }

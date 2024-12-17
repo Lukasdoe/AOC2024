@@ -11,7 +11,7 @@ const HEIGHT: i64 = 103;
 
 const SIMULATION_TIME: i64 = 100;
 
-pub(super) fn run(input: &Input, part: Part) -> u64 {
+pub(super) fn run(input: &Input, part: Part) -> String {
     let width = WIDTH;
     let height = HEIGHT;
 
@@ -58,7 +58,7 @@ pub(super) fn run(input: &Input, part: Part) -> u64 {
                 _ => (),
             }
         }
-        quad0 * quad1 * quad2 * quad3
+        (quad0 * quad1 * quad2 * quad3).to_string()
     } else {
         let input_re = Regex::new(r"p=(\d+),(\d+) v=(-?\d+),(-?\d+)").unwrap();
 
@@ -105,7 +105,7 @@ pub(super) fn run(input: &Input, part: Part) -> u64 {
             }
             i += 1;
             if !location_shared {
-                return i as u64;
+                return i.to_string();
             }
         }
     }

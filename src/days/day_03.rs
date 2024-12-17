@@ -1,6 +1,6 @@
 use crate::input::{Input, Part};
 
-pub(super) fn run(input: &Input, part: Part) -> u64 {
+pub(super) fn run(input: &Input, part: Part) -> String {
     let mut sum = 0;
     let s = input.get();
     if part == Part::One {
@@ -12,7 +12,7 @@ pub(super) fn run(input: &Input, part: Part) -> u64 {
                 let n2 = cap[2].parse::<u64>().unwrap();
                 sum += n1 * n2;
             });
-        sum
+        sum.to_string()
     } else {
         let mut enabled = true;
         regex::Regex::new(r#"(?:mul\((\d+),(\d+)\))|(?:do\(\))|(?:don't\(\))"#)
@@ -29,6 +29,6 @@ pub(super) fn run(input: &Input, part: Part) -> u64 {
                     sum += n1 * n2;
                 }
             });
-        sum
+        sum.to_string()
     }
 }

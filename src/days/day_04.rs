@@ -1,6 +1,6 @@
 use crate::input::{Input, Part};
 
-pub(super) fn run(input: &Input, part: Part) -> u64 {
+pub(super) fn run(input: &Input, part: Part) -> String {
     let mut m = Vec::new();
     for line in input.get().lines() {
         m.push(line.chars().collect::<Vec<_>>());
@@ -69,7 +69,7 @@ pub(super) fn run(input: &Input, part: Part) -> u64 {
                 }
             }
         }
-        cnt
+        cnt.to_string()
     } else {
         let mut cnt = 0;
         for i in 0..m.len() {
@@ -90,6 +90,6 @@ pub(super) fn run(input: &Input, part: Part) -> u64 {
                 cnt += 1;
             }
         }
-        cnt
+        cnt.to_string()
     }
 }

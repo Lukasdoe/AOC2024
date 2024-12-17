@@ -1,7 +1,7 @@
 use crate::input::{Input, Part};
 use std::collections::HashSet;
 
-pub(super) fn run(input: &Input, part: Part) -> u64 {
+pub(super) fn run(input: &Input, part: Part) -> String {
     let mut map = Vec::new();
     for line in input.get().lines() {
         let mut row = Vec::new();
@@ -29,7 +29,7 @@ pub(super) fn run(input: &Input, part: Part) -> u64 {
         }
     }
 
-    trailheadsum
+    trailheadsum.to_string()
 }
 
 fn rec_trail(row: usize, col: usize, map: &[Vec<u64>]) -> HashSet<(usize, usize)> {

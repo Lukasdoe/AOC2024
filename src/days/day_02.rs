@@ -1,6 +1,6 @@
 use crate::input::{Input, Part};
 
-pub(super) fn run(input: &Input, part: Part) -> u64 {
+pub(super) fn run(input: &Input, part: Part) -> String {
     let lines = input
         .get()
         .lines()
@@ -26,7 +26,7 @@ pub(super) fn run(input: &Input, part: Part) -> u64 {
                 }
             }
         }
-        (lines.len() - count_unsafe) as u64
+        (lines.len() - count_unsafe).to_string()
     } else {
         let mut count_safe = 0;
         for line in lines.iter() {
@@ -72,6 +72,6 @@ pub(super) fn run(input: &Input, part: Part) -> u64 {
                 }
             }
         }
-        count_safe as u64
+        count_safe.to_string()
     }
 }

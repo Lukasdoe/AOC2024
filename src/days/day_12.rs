@@ -1,7 +1,7 @@
 use crate::input::{Input, Part};
 use std::collections::HashMap;
 
-pub(super) fn run(input: &Input, part: Part) -> u64 {
+pub(super) fn run(input: &Input, part: Part) -> String {
     let mut map = Vec::new();
     for line in input.get().lines() {
         map.push(
@@ -78,7 +78,11 @@ pub(super) fn run(input: &Input, part: Part) -> u64 {
     //     println!();
     // }
 
-    regions.values().map(|(area, bs)| area * bs).sum()
+    regions
+        .values()
+        .map(|(area, bs)| area * bs)
+        .sum::<u64>()
+        .to_string()
 }
 
 fn merge_regions(

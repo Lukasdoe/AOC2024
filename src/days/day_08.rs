@@ -6,7 +6,7 @@ enum Tile {
     Node(char),
 }
 
-pub(super) fn run(input: &Input, part: Part) -> u64 {
+pub(super) fn run(input: &Input, part: Part) -> String {
     let mut map = Vec::new();
     for line in input.get().lines() {
         map.push(
@@ -61,7 +61,12 @@ pub(super) fn run(input: &Input, part: Part) -> u64 {
         }
     }
     print_map(&map);
-    antinodes.iter().flatten().filter(|&&b| b).count() as u64
+    antinodes
+        .iter()
+        .flatten()
+        .filter(|&&b| b)
+        .count()
+        .to_string()
 }
 
 fn get_circle_coords(

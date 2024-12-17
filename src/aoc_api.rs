@@ -56,16 +56,12 @@ impl AoCAPI {
             .expect("Failed to submit form")
     }
 
-    pub fn submit_solution(day: Day, part: Part, solution: u64) -> SolutionResult {
+    pub fn submit_solution(day: Day, part: Part, solution: String) -> SolutionResult {
         let day_num: u8 = day.into();
         let url = format!("https://adventofcode.com/2024/day/{day_num}/answer",);
         let level: u8 = part.into();
         let level_str = level.to_string();
-        let solution_str = solution.to_string();
-        let form = [
-            ("level", level_str.as_str()),
-            ("answer", solution_str.as_str()),
-        ];
+        let form = [("level", level_str.as_str()), ("answer", solution.as_str())];
         let response = AoCAPI::post(&url, &form);
         let response_text =
             soup::Soup::new(&response.into_string().expect("Failed to read response"))

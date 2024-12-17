@@ -27,7 +27,7 @@ enum Direction {
     Right,
 }
 
-pub(super) fn run(input: &Input, part: Part) -> u64 {
+pub(super) fn run(input: &Input, part: Part) -> String {
     let mut map = Vec::new();
     let mut guard_x = 0;
     let mut guard_y = 0;
@@ -130,6 +130,7 @@ pub(super) fn run(input: &Input, part: Part) -> u64 {
         map.iter()
             .map(|row| row.iter().filter(|t| t.is_visited()).count() as u64)
             .sum::<u64>()
+            .to_string()
     } else {
         let mut possible_obstacles = 0;
         let mut possible_obstacles_pos = Vec::new();
@@ -146,7 +147,7 @@ pub(super) fn run(input: &Input, part: Part) -> u64 {
             }
         }
         // print_map_with_obstacles(&map, &possible_obstacles_pos);
-        possible_obstacles
+        possible_obstacles.to_string()
     }
 }
 

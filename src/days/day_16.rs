@@ -8,7 +8,7 @@ enum Tile {
     Empty,
 }
 
-pub(super) fn run(input: &Input, part: Part) -> u64 {
+pub(super) fn run(input: &Input, part: Part) -> String {
     let mut map = Vec::new();
     let mut start = (0, 0);
     let mut end = (0, 0);
@@ -44,9 +44,9 @@ pub(super) fn run(input: &Input, part: Part) -> u64 {
     );
     print_map(&map, &path);
     if part == Part::One {
-        res as u64
+        res.to_string()
     } else {
-        path.iter().unique().count() as u64 + 1
+        (path.iter().unique().count() as u64 + 1).to_string()
     }
 }
 

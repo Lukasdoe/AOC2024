@@ -12,7 +12,7 @@ static RESOURCES: LazyLock<PathBuf> = LazyLock::new(|| {
 
 struct AoCSource {
     source: String,
-    solution: Option<u64>,
+    solution: Option<String>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -45,7 +45,7 @@ impl Input {
     }
 
     #[allow(dead_code)]
-    pub fn custom(source: String, solution: u64) -> Self {
+    pub fn custom(source: String, solution: String) -> Self {
         Self {
             source: AoCSource {
                 source,
@@ -58,8 +58,8 @@ impl Input {
         self.source.source.as_str()
     }
 
-    pub fn get_solution(&self) -> Option<u64> {
-        self.source.solution
+    pub fn get_solution(&self) -> Option<String> {
+        self.source.solution.clone()
     }
 
     fn load_source(day: Day, part: Part) -> AoCSource {
@@ -69,11 +69,12 @@ impl Input {
         let sol_file_path = RESOURCES.join(format!("day_{}_{}_sol.txt", day_num, part_num));
         if source_file_path.exists() {
             let source = std::fs::read_to_string(&source_file_path).unwrap();
-            let solution = std::fs::read_to_string(&sol_file_path)
-                .unwrap()
-                .trim()
-                .parse::<u64>()
-                .ok();
+            let solution = Some(
+                std::fs::read_to_string(&sol_file_path)
+                    .unwrap()
+                    .trim()
+                    .to_owned(),
+            );
             return AoCSource { source, solution };
         }
         let source = AoCAPI::get_input(day);
@@ -127,14 +128,14 @@ impl Input {
         let code_tags = article.tag("code").find_all().collect::<Vec<_>>();
         for tag in code_tags.iter().rev() {
             if let Some(em) = tag.tag("em").find() {
-                let num: u64 = em.text().parse().unwrap_or(0);
-                println!("Found example solution: {}", num);
+                let solution = em.text().trim().to_owned();
+                println!("Found example solution: {}", solution);
                 let res = AoCSource {
                     source: example_source.unwrap(),
-                    solution: Some(num),
+                    solution: Some(solution.clone()),
                 };
                 std::fs::write(dbg_source_file_path, res.source.as_bytes()).unwrap();
-                std::fs::write(dbg_sol_file_path, num.to_string().as_bytes()).unwrap();
+                std::fs::write(dbg_sol_file_path, solution.as_bytes()).unwrap();
                 return res;
             }
         }

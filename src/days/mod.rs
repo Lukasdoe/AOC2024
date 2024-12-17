@@ -122,7 +122,7 @@ impl From<Day> for u8 {
     }
 }
 
-pub fn run_day(day: Day, input: &Input, part: Part) -> u64 {
+pub fn run_day(day: Day, input: &Input, part: Part) -> String {
     match day {
         Day::Day1 => day_01::run(input, part),
         Day::Day2 => day_02::run(input, part),

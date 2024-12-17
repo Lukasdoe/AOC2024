@@ -1,6 +1,6 @@
 use crate::input::{Input, Part};
 
-pub(super) fn run(input: &Input, part: Part) -> u64 {
+pub(super) fn run(input: &Input, part: Part) -> String {
     let s = input.get();
     assert!(s.lines().count() == 1);
     let line = s.lines().next().unwrap();
@@ -44,7 +44,7 @@ pub(super) fn run(input: &Input, part: Part) -> u64 {
             }
             i += 1;
         }
-        checksum
+        checksum.to_string()
     } else {
         enum State {
             Block((u64, u64)),
@@ -111,6 +111,6 @@ pub(super) fn run(input: &Input, part: Part) -> u64 {
                 }
             }
         }
-        checksum
+        checksum.to_string()
     }
 }

@@ -4,7 +4,7 @@ use crate::input::{Input, Part};
 
 const PART_TWO_DEPTH: usize = 75;
 
-pub(super) fn run(input: &Input, part: Part) -> u64 {
+pub(super) fn run(input: &Input, part: Part) -> String {
     let mut stones = input
         .get()
         .lines()
@@ -31,11 +31,14 @@ pub(super) fn run(input: &Input, part: Part) -> u64 {
                 }
             }
         }
-        stones.len() as u64
+        stones.len().to_string()
     } else {
         let mut mem = HashMap::new();
-        let res = stones.iter().map(|&s| stones_rec(0, s, &mut mem)).sum();
-        res
+        stones
+            .iter()
+            .map(|&s| stones_rec(0, s, &mut mem))
+            .sum::<u64>()
+            .to_string()
     }
 }
 

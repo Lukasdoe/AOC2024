@@ -18,7 +18,7 @@ enum Direction {
     Right,
 }
 
-pub(super) fn run(input: &Input, part: Part) -> u64 {
+pub(super) fn run(input: &Input, part: Part) -> String {
     let mut map_mode = true;
     let mut map = Vec::new();
     let mut robot = (0, 0);
@@ -118,7 +118,7 @@ pub(super) fn run(input: &Input, part: Part) -> u64 {
             }
         }
     }
-    sum_of_box_coords
+    sum_of_box_coords.to_string()
 }
 
 fn push_boxes1(start: (usize, usize), dir: Direction, map: &mut [Vec<Tile>]) -> bool {

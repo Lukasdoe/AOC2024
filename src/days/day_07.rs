@@ -1,6 +1,6 @@
 use crate::input::{Input, Part};
 
-pub(super) fn run(input: &Input, part: Part) -> u64 {
+pub(super) fn run(input: &Input, part: Part) -> String {
     let mut inputs = vec![];
     for line in input.get().lines() {
         let (target, nums) = line.split_once(": ").unwrap();
@@ -23,7 +23,7 @@ pub(super) fn run(input: &Input, part: Part) -> u64 {
             count += target;
         }
     }
-    count
+    count.to_string()
 }
 
 fn find_rec(target: u64, n: u64, nums: &[u64], i: usize) -> bool {

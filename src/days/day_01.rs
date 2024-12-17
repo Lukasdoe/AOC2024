@@ -2,7 +2,7 @@ use std::collections::HashMap;
 
 use crate::input::{Input, Part};
 
-pub(super) fn run(input: &Input, part: Part) -> u64 {
+pub(super) fn run(input: &Input, part: Part) -> String {
     let mut left: Vec<u64> = Vec::new();
     let mut right: Vec<u64> = Vec::new();
     for line in input.get().lines() {
@@ -17,7 +17,7 @@ pub(super) fn run(input: &Input, part: Part) -> u64 {
         for i in 0..left.len() {
             sum += left[i].abs_diff(right[i]);
         }
-        sum
+        sum.to_string()
     } else {
         let mut occur = HashMap::new();
         for obj in right {
@@ -29,6 +29,6 @@ pub(super) fn run(input: &Input, part: Part) -> u64 {
                 res += obj * *e;
             }
         }
-        res
+        res.to_string()
     }
 }

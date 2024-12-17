@@ -1,7 +1,7 @@
 use crate::input::{Input, Part};
 use std::collections::{HashMap, HashSet};
 
-pub(super) fn run(input: &Input, part: Part) -> u64 {
+pub(super) fn run(input: &Input, part: Part) -> String {
     if part == Part::One {
         let s = input.get();
         let mut found_sep = false;
@@ -46,7 +46,7 @@ pub(super) fn run(input: &Input, part: Part) -> u64 {
                 }
             }
         }
-        sum
+        sum.to_string()
     } else {
         let s = input.get();
         let mut found_sep = false;
@@ -92,7 +92,7 @@ pub(super) fn run(input: &Input, part: Part) -> u64 {
                     .unwrap();
             }
         }
-        sum
+        sum.to_string()
     }
 }
 
