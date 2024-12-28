@@ -1,3 +1,6 @@
+#![allow(clippy::nonminimal_bool)]
+#![allow(clippy::type_complexity)]
+
 use std::process::exit;
 
 use clap::Parser;
