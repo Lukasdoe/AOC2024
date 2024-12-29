@@ -10,6 +10,7 @@ chrono = "0.4.39"
 clap = { version = "4.5.21", features = ["derive"] }
 itertools = "0.13.0"
 rand = "0.8.5"
+rayon = "1.10.0"
 regex = "1.11.1"
 soup = "0.5.1"
 ureq = "2.11.0"
