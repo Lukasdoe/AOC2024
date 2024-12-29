@@ -1,5 +1,6 @@
 #![allow(clippy::nonminimal_bool)]
 #![allow(clippy::type_complexity)]
+#![allow(clippy::comparison_chain)]
 
 use std::process::exit;
 
